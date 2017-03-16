@@ -37,10 +37,10 @@ function onLoad() {
             operator = button.value;
             return screen.textContent += button.value;
           }
-          else if ((operands.length === 2) && operator) {
-            screen.textContent += calculate(operands, operator)
+          else if (button.value === "=") {
+            screen.textContent += button.value
+            return screen.textContent += calculate(operands, operator)
           }
-          else if (button.value === "=") {return screen.textContent += button.value}
         })
       };
     }
