@@ -24,23 +24,23 @@ function onLoad() {
     }
 
     getClicks();
+
     function getClicks() {
       for (let button of buttons) {
         button.addEventListener("click", function () {
-          if (button.value === "C") { clear() }
+          if (button.value === "C") { return clear() }
           else if (button.className === "num") { 
-            screen.textContent += button.value;
-            console.log(parseInt(button.value));
-            operands.push(parseInt(button.value)) }
+            operands.push(parseInt(button.value)) 
+            return screen.textContent += button.value;
+          }
           else if (button.className === "operator") { 
             operator = button.value;
-            console.log (operator);
-            screen.textContent += button.value;
+            return screen.textContent += button.value;
           }
-          else if (button.value === "=") {screen.textContent += button.value}
-          if ((operands.length === 2) && operator) {
+          else if ((operands.length === 2) && operator) {
             screen.textContent += calculate(operands, operator)
           }
+          else if (button.value === "=") {return screen.textContent += button.value}
         })
       };
     }
