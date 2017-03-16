@@ -15,10 +15,10 @@ function onLoad() {
       let a = arr[0];
       let b = arr[1];
       let operators = {
-        "+":  a + b,
-        "-":  a - b,
-        "&times;": a * b,
-        "&divide;": a / b,
+        "+": a + b,
+        "-": a - b,
+        "×": a * b,
+        "÷": a / b,
       }
       return operators[callback];
     }
@@ -34,6 +34,7 @@ function onLoad() {
             operands.push(parseInt(button.value)) }
           else if (button.className === "operator") { 
             operator = button.value;
+            console.log (operator);
             screen.textContent += button.value;
           }
           else if (button.value === "=") {screen.textContent += button.value}
