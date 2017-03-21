@@ -1,13 +1,14 @@
 const calculator = (function () {
+
+  const ops = {
+    operands: [],
+    operator: "",
+    calculated: ""
+  }
   
-  const getOps = function(buttonValue) {
+  const updateOps = function(buttonValue) {
   // takes an empty array and an operation
   // returns object containing operands, operator, and calculated result
-    const ops = {
-      operands: [],
-      operator: "",
-      calculated: ""
-    }
     if (buttonValue === "C") { 
       ops.operands = [];
       ops.operator = "";
@@ -15,11 +16,11 @@ const calculator = (function () {
     else if (typeof (buttonValue) === "number") { 
       ops.operands.push(parseInt(buttonValue)) 
     }
-    else if (typeof (buttonValue === "number")) { 
-      ops.operator = buttonValue;
-    }
     else if (buttonValue === "=") {
       ops.calculated = calculate(ops.operands, ops.operator)
+    }
+    else if (["+","-","×","÷"].indexOf(buttonValue ) > 0) { 
+      ops.operator = buttonValue;
     }
     return ops 
   }
@@ -27,10 +28,10 @@ const calculator = (function () {
   const calculate = function(ops) {
   // takes object containing an array of numbers and an operation
   // returns a number that is the result of calling the operation on the array's numbers 
-    function add(arr) { arr[0] + arr[1] }
-    function subtract(arr) { arr[0] - arr[1] }
-    function multiply(arr) { arr[0] * arr[1] }
-    function divide(arr) { arr[0] / arr[1] }
+    const add = function (arr) { arr[0] + arr[1] }
+    const subtract = function (arr) { arr[0] - arr[1] }
+    const multiply = function (arr) { arr[0] * arr[1] }
+    const divide = function (arr) { arr[0] / arr[1] }
     const operators = {
       "+": add,
       "-": subtract,
@@ -70,8 +71,19 @@ const calculator = (function () {
 
   return {
     log: log,
-    getOps: getOps
+    updateOps: updateOps,
+    ops: ops,
+    calculate: calculate,
+    getClickValue: getClickValue
   }
 })()
 
 module.exports = calculator
+
+//const operator = function(arr) {arr[0] + arr[1]}
+//const operand = ["1", "2"]
+//
+//const calculate = function(operator, operand) { 
+//  return operator(operand)
+//  }
+//  calculate(operator(operand))
