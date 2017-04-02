@@ -39,16 +39,31 @@ const calculator = ( function() {
   //     ops.answer = makeAnswer( ops.operands, ops.operator )
   //   }
   // }
- let getClickValue = function () {
-   console.log("clicked")
-   for ( var button of buttonlist ) {
-     console.log(button)
-     button.addEventListener( "click", function() {
-     screen.textContent = button.value
-     }) // end anonymous function
-   } // end for loop
- } // end getclickvalue function
+  function getClickValue( nodelist ) {
+    for ( var button of buttonlist ) {
+      button.addEventListener( "click", function() {
+        console.log(button.value)
+      return button.value
+      }) 
+    } 
+  } 
+
+  const printToScreen = function( buttonValue ) {
+    screen.textContent += buttonValue
+  }
+
+  return {
+    buttonlist:     buttonlist, 
+    screen:         screen,
+    getClickValue:  getClickValue,
+    printToScreen:  printToScreen
+  }
   
-})() // end window.onload
-window.onload = calculator;
+})() 
+
+window.onload = calculator
+debugger
+let buttonValue = calculator.getClickValue( calculator.buttonlist )
+calculator.printToScreen( buttonValue )
+console.log("buttonValue : ", buttonValue )
 
