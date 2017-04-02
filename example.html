@@ -13,7 +13,7 @@
 
     <script>
       function onLoad () {
-        var buttons = document.querySelector("input[type='button']");
+        let buttons = document.querySelectorAll("input[type='button']");
 
         buttons.map(function(button, i) {
           button.item(i).addEventListener("click", function () {

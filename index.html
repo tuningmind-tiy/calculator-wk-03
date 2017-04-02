@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <meta name="viewinputort" content="width=device-width,
+    <meta name="viewport" content="width=device-width,
     initial-scale=1">
     <title>calculator</title>
     <link rel="stylesheet" href="./styles/styles.css">
@@ -29,18 +29,28 @@
             <input class="num" type="button" value="7" >
             <input class="num" type="button" value="8" >
             <input class="num" type="button" value="9" >
-            <input class="operator" type="button" value="&times;" >
+            <input class="operator" type="button" value="×" >
           </div>
           <div class="row">
             <input class="other" type="button" value="C" >
             <input class="num" type="button" value="0" >
             <input class="other" type="button" value="=" >
-            <input class="operator" type="button" value="&divide;" >
+            <input class="operator" type="button" value="÷" >
           </div><!--end div row-->
         </div><!--end div inputs-->
       </div><!--end div casing-->
     </main>
+    <!--<script type="text/javascript">-->
+    <!--    const screen        = document.querySelector("#screen")-->
+    <!--    const buttonlist    = document.querySelectorAll("input[type='button']")-->
+    <!--    const getClickValue = function () {-->
+    <!--      for ( let button of buttonlist ) {-->
+    <!--        button.addEventListener( "click", function() {-->
+    <!--          screen.textContent = button.value-->
+    <!--        }) -->
+    <!--      } -->
+    <!--    }-->
+    <!--</script>-->
     <script type="text/javascript" src="./scripts/calculator.js"></script>
-    <!--<script src="./public/bundle.js"></script>-->
   </body>
 </html>
