@@ -9,7 +9,7 @@ const calculator = ( function() {
     operator: '',
     answer: ''
   } 
-  const isEqualSign   = function( value ) { return value == "=" }
+  const isEqualSign   = function( value ) { return value == " = " }
   const isOperator    = function( operatorString ) {
     return ["+","-","×","÷"].indexOf( operatorString ) >= 0 
   }
@@ -26,6 +26,12 @@ const calculator = ( function() {
             let ansarr = ans.toString().split('')
             let slice = ansarr.indexOf('.')
             ans = ansarr.slice(0, slice + 5).join('')
+            return ans
+          },
+    "%": function( operands ) { 
+            let ans = operands[0] % operands[1] 
+            ans = '0.' + ans.toString()
+            console.log(ans)
             return ans
           }
   }
@@ -45,6 +51,8 @@ const calculator = ( function() {
       ops.operands.push( buttonValue )
     } else if ( isEqualSign( buttonValue )) {
       ops.answer = makeAnswer( ops.operator, ops.operands)
+    } else if ( buttonValue === 'm') {
+      ops.operator = '%'
     }
   }
   for ( let button of buttonlist) {
