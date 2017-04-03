@@ -9,11 +9,8 @@ html, body {
   padding: 15px;
   background: #464655;
   box-sizing: border-box;
-  color: #464655;
 }
-main {
-}
-.inputs{
+.inputs {
   border-radius: 10px;
   box-shadow: 2px 2px 1px #1D1D23;
   background: #94958B;
@@ -26,6 +23,8 @@ main {
   flex-direction: column;
   align-items: center;
   align-content: stretch;
+  color: #464655;
+  font-size: .5em;
 }
 #screen {
   box-shadow: inset 2px 2px 1px #464655;

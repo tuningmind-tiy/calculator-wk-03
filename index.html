@@ -2,17 +2,17 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <meta name="viewinputort" content="width=device-width,
+    <meta name="viewport" content="width=device-width,
     initial-scale=1">
     <title>calculator</title>
     <link rel="stylesheet" href="./styles/styles.css">
   </head>
   <body>
-    <main>
-      <div id="casing">
         <div class="inputs">
-          <div id="screen"></div><!--end div screen-->
-            <div class="row">
+      enter one-digit numbers and one operation
+          <div id="screen">
+          </div><!--end div screen-->
+          <div class="row">
             <input class="num" type="button" value="1" > 
             <input class="num" type="button" value="2" >
             <input class="num" type="button" value="3" >
@@ -28,18 +28,15 @@
             <input class="num" type="button" value="7" >
             <input class="num" type="button" value="8" >
             <input class="num" type="button" value="9" >
-            <input class="operator" type="button" value="&times;" >
+            <input class="operator" type="button" value="×" >
           </div>
           <div class="row">
             <input class="other" type="button" value="C" >
             <input class="num" type="button" value="0" >
             <input class="other" type="button" value="=" >
-            <input class="operator" type="button" value="&divide;" >
-          </div>
+            <input class="operator" type="button" value="÷" >
+          </div><!--end div row-->
         </div><!--end div inputs-->
-      </div><!--end div casing-->
-    </main>
-    <!--<script type="text/javascript" src="./scripts/main.js"></script>-->
-    <script src="./public/bundle.js"></script>
+    <script type="text/javascript" src="./scripts/calculator.js"></script>
   </body>
 </html>
