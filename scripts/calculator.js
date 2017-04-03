@@ -1,7 +1,9 @@
 const calculator = ( function() {
   const screen        = document.querySelector("div#screen")
   const buttonlist    = document.querySelectorAll("input[type='button']")
-
+  const printToScreen = function( buttonValue ) {
+    screen.textContent += buttonValue
+  }
   const ops           = {
     operands: [],
     operator: '',
@@ -19,14 +21,19 @@ const calculator = ( function() {
     "+": function( operands ) { return operands[0] + operands[1]},
     "-": function( operands ) { return operands[0] - operands[1]},
     "×": function( operands ) { return operands[0] * operands[1]},
-    "÷": function( operands ) { return operands[0] / operands[1]}
+    "÷": function( operands ) { 
+            let ans = operands[0] / operands[1]
+            let ansarr = ans.toString().split('')
+            let slice = ansarr.indexOf('.')
+            ans = ansarr.slice(0, slice + 5).join('')
+            return ans
+          }
   }
   const makeAnswer    = function( opfunction, operands ) {
     operands = operands.map(Number)
     const calculated = opfunctions[opfunction](operands)
     return calculated
   }
-
   const updateOps = function( buttonValue ) {
     if ( buttonValue === "C" ) {
       ops.operands = []
@@ -48,9 +55,6 @@ const calculator = ( function() {
     }) 
   } 
 
-  const printToScreen = function( buttonValue ) {
-    screen.textContent += buttonValue
-  }
 
   return {
     buttonlist:     buttonlist, 
