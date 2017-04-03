@@ -1,4 +1,6 @@
 const calculator = ( function() {
+  const screen        = document.querySelector("div#screen")
+  const buttonlist    = document.querySelectorAll("input[type='button']")
 
   const ops           = {
     operands: [],
@@ -27,8 +29,9 @@ const calculator = ( function() {
 
   const updateOps = function( buttonValue ) {
     if ( buttonValue === "C" ) {
-      ops.operands = [],
+      ops.operands = []
       ops.operator = ''
+      screen.textContent = ''
     } else if ( isOperator( buttonValue )) {
       ops.operator = buttonValue
     } else if ( isNumber( buttonValue )) {
@@ -37,13 +40,10 @@ const calculator = ( function() {
       ops.answer = makeAnswer( ops.operator, ops.operands)
     }
   }
-  const screen        = document.querySelector("div#screen")
-  const buttonlist    = document.querySelectorAll("input[type='button']")
   for ( let button of buttonlist) {
     button.addEventListener( "click", function() {
       printToScreen( button.value )
       updateOps( button.value )
-      console.log("ops: ", ops)
       if (isEqualSign( button.value )) { printToScreen( ops.answer ) }
     }) 
   } 
